@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: Arial;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #00c6ff;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0072ff;
+            transform: scale(1.05);
+        }
+
+        .dark {
+            background: #121212;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Create Account</h2>
+
+<input type="email" id="email" placeholder="Enter Email"><br>
+<input type="password" id="password" placeholder="Enter Password"><br>
+
+<select id="role">
+    <option value="candidate">Candidate</option>
+    <option value="recruiter">Recruiter</option>
+</select><br>
+
+<button onclick="signup()">Sign Up</button>
+
+<p id="msg"></p>
+
+<!-- ✅ SIGNUP SCRIPT -->
+<script>
+function signup() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let role = document.getElementById("role").value;
+
+    // 🔒 Basic validation
+    if(!email || !password) {
+        document.getElementById("msg").innerText = "⚠️ Please fill all fields!";
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // ❌ Prevent duplicate email
+    let existingUser = users.find(user => user.email === email);
+
+    if(existingUser) {
+        document.getElementById("msg").innerText = "⚠️ Email already exists! Please login.";
+        return;
+    }
+
+    // ✅ Save user
+    users.push({ email, password, role });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    document.getElementById("msg").innerText = "✅ Account created successfully! Redirecting...";
+
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 1500);
+}
+</script>
+
+<!-- ✅ DARK MODE -->
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+
+// APPLY SAVED THEME
+let theme = localStorage.getItem("theme");
+if(theme === "dark") {
+    document.body.classList.add("dark");
+}
+</script>
+
+</body>
+</html>

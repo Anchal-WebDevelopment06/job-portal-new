@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: Arial;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #00c6ff;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .dark {
+            background: #121212;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Login</h2>
+
+<input type="email" id="email" placeholder="Enter Email"><br>
+<input type="password" id="password" placeholder="Enter Password"><br>
+
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+<!-- ✅ LOGIN SCRIPT (ONLY ONE) -->
+<script>
+function login() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    let user = users.find(u => u.email === email && u.password === password);
+
+    if(!user) {
+        document.getElementById("msg").innerText = "❌ Invalid credentials!";
+        return;
+    }
+
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+    if(user.role === "recruiter") {
+        window.location.href = "admin.html";
+    } else {
+        window.location.href = "index.html";
+    }
+}
+</script>
+
+<!-- ✅ DARK MODE -->
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+
+// APPLY SAVED THEME
+let theme = localStorage.getItem("theme");
+if(theme === "dark") {
+    document.body.classList.add("dark");
+}
+</script>
+
+</body>
+</html>

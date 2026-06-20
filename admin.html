@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    let user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if(!user || user.role !== "recruiter") {
+        alert("Access denied!");
+        window.location.href = "login.html";
+    }
+    </script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>Admin Panel</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><button onclick="toggleMode()">🌙</button></li>
+        <li><button onclick="logout()">Logout</button></li>
+    </ul>
+</nav>
+
+<!-- ADMIN DASHBOARD -->
+<section class="admin">
+    <h1>Admin Dashboard ⚙️</h1>
+
+    <!-- STATS -->
+    <div class="admin-cards">
+        <div class="card">📄 Total Jobs: 120</div>
+        <div class="card">👥 Users: 300</div>
+        <div class="card">📩 Applications: 500</div>
+    </div>
+
+    <!-- ADD JOB FORM -->
+    <div class="admin-form">
+        <h2>Post a New Job</h2>
+        <form id="jobForm">
+            <input type="text" placeholder="Job Title" required><br><br>
+            <input type="text" placeholder="Company Name" required><br><br>
+            <textarea placeholder="Job Description"></textarea><br><br>
+
+            <button type="submit" class="blue-btn">Add Job</button>
+            <button type="reset" class="blue-outline">Clear</button>
+        </form>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="admin-actions">
+        <button class="blue-btn">View All Jobs</button>
+        <button class="blue-btn">Manage Users</button>
+        <button class="blue-btn">View Applications</button>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 JobPortal Admin</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+}
+</script>
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    // ✅ SAVE MODE
+    if(document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+</script>
+<script>
+// ✅ APPLY SAVED THEME
+let theme = localStorage.getItem("theme");
+
+if(theme === "dark") {
+    document.body.classList.add("dark");
+}
+</script>
+</body>
+</html>

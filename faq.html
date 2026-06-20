@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAQ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>JobPortal</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><button onclick="toggleMode()">🌙</button></li>
+    </ul>
+</nav>
+
+<!-- FAQ SECTION -->
+<section class="faq">
+    <h1>Frequently Asked Questions ❓</h1>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">How do I apply for a job?</h3>
+        <p>Click on "Apply Now", fill the form and submit your details.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">Is this website free?</h3>
+        <p>Yes, our platform is completely free for job seekers.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">Can I apply for multiple jobs?</h3>
+        <p>Yes, you can apply to as many jobs as you like.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">How will I know if I am selected?</h3>
+        <p>You will be contacted via email or phone by the company.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">Can I edit my application?</h3>
+        <p>Currently, editing is not available. Please apply carefully.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">Do I need an account?</h3>
+        <p>No, you can apply directly without creating an account.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3 onclick="toggleFAQ(this)">How often are jobs updated?</h3>
+        <p>Jobs are updated daily with the latest opportunities.</p>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 JobPortal</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    // ✅ SAVE MODE
+    if(document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+</script>
+<script>
+// ✅ APPLY SAVED THEME
+let theme = localStorage.getItem("theme");
+
+if(theme === "dark") {
+    document.body.classList.add("dark");
+}
+</script>
+</body>
+</html>

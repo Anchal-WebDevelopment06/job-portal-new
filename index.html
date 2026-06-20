@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>JobPortal</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Signup</a></li>
+        <li><button onclick="toggleMode()">🌙</button></li>
+        <li><button onclick="logout()">Logout</button></li>
+
+    </ul>
+</nav>
+
+<!-- HERO WITH IMAGE -->
+<section class="hero">
+
+    <div class="hero-content">
+        <h1>Find Your <span>Dream Job</span> 💼</h1>
+        <p>Discover thousands of opportunities from top companies worldwide</p>
+
+        <div class="hero-buttons">
+            <a href="jobs.html" class="btn">Explore Jobs</a>
+            <a href="apply.html" class="btn-outline">Upload Resume</a>
+        </div>
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="card">🔥 1000+ Jobs</div>
+    <div class="card">🏢 Top Companies</div>
+    <div class="card">⚡ Easy Apply</div>
+</section>
+
+<!-- IMAGE SECTION -->
+<section class="image-section">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="office">
+    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df" alt="team">
+    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" alt="work">
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 JobPortal | Designed by You 💙</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+}
+</script>
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    // ✅ SAVE MODE
+    if(document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+</script>
+<script>
+// ✅ APPLY SAVED THEME
+let theme = localStorage.getItem("theme");
+
+if(theme === "dark") {
+    document.body.classList.add("dark");
+}
+</script>
+
+</body>
+</html>

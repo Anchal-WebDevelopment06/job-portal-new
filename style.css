@@ -1,0 +1,292 @@
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    transition: 0.4s;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 90vh;
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') 
+        no-repeat center/cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* HERO CONTENT */
+.hero-content {
+    max-width: 700px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* HEADING */
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #ff9800;
+}
+
+/* PARAGRAPH */
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* BUTTONS */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* PRIMARY BUTTON */
+.btn {
+    padding: 12px 25px;
+    background: #ff9800;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ffc107;
+    transform: scale(1.05);
+}
+
+/* OUTLINE BUTTON */
+.btn-outline {
+    padding: 12px 25px;
+    border: 2px solid white;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: black;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FEATURES */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background: #f5f7fa;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: #2575fc;
+    color: white;
+}
+
+/* IMAGE SECTION */
+.image-section {
+    display: flex;
+    gap: 10px;
+    padding: 30px;
+}
+
+.image-section img {
+    width: 33%;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.image-section img:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* DARK MODE */
+.dark {
+    background: #121212;
+    color: white;
+}
+
+.dark nav {
+    background: #222;
+}
+/* FAQ SECTION */
+.faq {
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    background: #f4f4f4;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.faq-item:hover {
+    background: #2575fc;
+    color: white;
+}
+
+.faq-item p {
+    display: none;
+    margin-top: 10px;
+}
+
+/* ADMIN PANEL */
+.admin {
+    padding: 40px;
+    text-align: center;
+}
+
+.admin h1 {
+    margin-bottom: 30px;
+}
+
+/* CARDS */
+.admin-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.admin-cards .card {
+    background: #e3f2fd;
+    color: #0d47a1;
+    font-weight: bold;
+}
+
+/* FORM */
+.admin-form {
+    background: #f5faff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.admin-form input,
+.admin-form textarea {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #90caf9;
+    border-radius: 5px;
+}
+
+/* BLUE BUTTON */
+.blue-btn {
+    background: #1976d2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.blue-btn:hover {
+    background: #0d47a1;
+    transform: scale(1.05);
+}
+
+/* OUTLINE BUTTON */
+.blue-outline {
+    background: transparent;
+    color: #1976d2;
+    border: 2px solid #1976d2;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.blue-outline:hover {
+    background: #1976d2;
+    color: white;
+}
+
+/* ACTION BUTTONS */
+.admin-actions {
+    margin-top: 20px;
+}
+
+body.dark {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark nav {
+    background-color: #1f1f1f;
+}
