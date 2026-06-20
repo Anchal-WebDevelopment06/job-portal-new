@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | JobPortal</title>
+
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+    }
+
+    /* NAVBAR */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        background: rgba(0,0,0,0.3);
+    }
+
+    nav h2 {
+        font-size: 22px;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+    }
+
+    nav a, nav button {
+        color: white;
+        text-decoration: none;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* HERO */
+    .about-hero {
+        text-align: center;
+        padding: 80px 20px 40px;
+    }
+
+    .about-hero h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    .about-hero p {
+        font-size: 18px;
+        opacity: 0.9;
+    }
+
+    /* CONTENT */
+    .about-content {
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .about-content p {
+        margin-top: 10px;
+        line-height: 1.6;
+    }
+
+    .about-boxes {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .box {
+        background: rgba(255,255,255,0.1);
+        padding: 20px;
+        border-radius: 12px;
+        width: 250px;
+        transition: 0.3s;
+    }
+
+    .box:hover {
+        transform: translateY(-8px);
+        background: rgba(255,255,255,0.2);
+    }
+
+    /* TEAM */
+    .team {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .team-cards {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .team-card {
+        background: white;
+        color: black;
+        border-radius: 12px;
+        padding: 20px;
+        width: 200px;
+        transition: 0.3s;
+    }
+
+    .team-card:hover {
+        transform: scale(1.05);
+    }
+
+    .team-card img {
+        width: 100%;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: rgba(0,0,0,0.3);
+        margin-top: 40px;
+    }
+
+    /* DARK MODE */
+    .dark {
+        background: #111;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <h2>JobPortal 💼</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html">Jobs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="admin.html">Admin</a></li>
+        <li><button onclick="toggleMode()">🌙</button></li>
+        <li><button onclick="logout()">Logout</button></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="about-hero">
+    <h1>About JobPortal 💼</h1>
+    <p>Connecting Talent with Opportunities Worldwide 🌍</p>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about-content">
+    <h2>Who We Are</h2>
+    <p>
+        JobPortal is a modern platform designed to connect job seekers with top companies.
+        We make hiring simple, fast, and accessible for everyone.
+    </p>
+
+```
+<div class="about-boxes">
+    <div class="box">
+        <h3>🎯 Mission</h3>
+        <p>Make job searching easy and accessible to all.</p>
+    </div>
+
+    <div class="box">
+        <h3>🚀 Vision</h3>
+        <p>To become the world's leading job portal.</p>
+    </div>
+
+    <div class="box">
+        <h3>💡 Values</h3>
+        <p>Trust, innovation, and transparency.</p>
+    </div>
+</div>
+```
+
+</section>
+
+<!-- TEAM -->
+
+<section class="team">
+    <h2>Our Team 👨‍💻</h2>
+
+```
+<div class="team-cards">
+    <div class="team-card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+        <h3>Priya Sharma</h3>
+        <p>HR Manager</p>
+    </div>
+
+    <div class="team-card">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+        <h3>Rahul Verma</h3>
+        <p>Developer</p>
+    </div>
+
+    <div class="team-card">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg">
+        <h3>Anita Das</h3>
+        <p>Recruiter</p>
+    </div>
+</div>
+```
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 JobPortal | Designed by You 💙</p>
+</footer>
+
+<!-- SCRIPT -->
+
+<script>
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+}
+
+function toggleMode() {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+
+// APPLY SAVED THEME
+let theme = localStorage.getItem("theme");
+if(theme === "dark") {
+    document.body.classList.add("dark");
+}
+</script>
+
+</body>
+</html>
